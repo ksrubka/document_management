@@ -1,8 +1,5 @@
 package pl.com.bottega.documentmanagement.api;
 
-/**
- * Created by maciuch on 18.06.16.
- */
 public class SignupResultDto {
 
     private boolean success;

@@ -5,9 +5,6 @@ import pl.com.bottega.documentmanagement.api.AuthRequiredException;
 import pl.com.bottega.documentmanagement.api.RequiresAuth;
 import pl.com.bottega.documentmanagement.api.UserManager;
 
-/**
- * Created by maciuch on 09.07.16.
- */
 @Component
 public class AuthAspect {
 

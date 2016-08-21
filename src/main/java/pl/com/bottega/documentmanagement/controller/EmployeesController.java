@@ -5,9 +5,6 @@ import pl.com.bottega.documentmanagement.api.SignupResultDto;
 import pl.com.bottega.documentmanagement.api.UserManager;
 import pl.com.bottega.documentmanagement.domain.EmployeeId;
 
-/**
- * Created by maciuch on 03.07.16.
- */
 @RestController
 @RequestMapping("/employees")
 public class EmployeesController {

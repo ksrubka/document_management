@@ -4,9 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-/**
- * Created by maciuch on 30.07.16.
- */
+
 @Entity
 public class Tag {
 

@@ -6,9 +6,6 @@ import pl.com.bottega.documentmanagement.api.NPlus1SelectSimulator;
 import pl.com.bottega.documentmanagement.domain.Document;
 import pl.com.bottega.documentmanagement.domain.Tag;
 
-/**
- * Created by maciuch on 30.07.16.
- */
 public class NPlus1SelectTest {
 
     public static void main(String[] args) {

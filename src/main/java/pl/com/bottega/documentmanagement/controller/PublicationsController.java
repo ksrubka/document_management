@@ -8,9 +8,6 @@ import pl.com.bottega.documentmanagement.domain.EmployeeId;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-/**
- * Created by maciuch on 16.08.16.
- */
 @RestController
 @RequestMapping("/documents/{documentNumber}/publications")
 public class PublicationsController {

@@ -1,8 +1,5 @@
 package pl.com.bottega.documentmanagement.controller;
 
-/**
- * Created by maciuch on 03.07.16.
- */
 public class DocumentRequest {
 
     private String title;

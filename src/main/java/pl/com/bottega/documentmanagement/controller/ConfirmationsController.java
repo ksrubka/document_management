@@ -8,9 +8,6 @@ import pl.com.bottega.documentmanagement.api.ReadingConfirmator;
 import pl.com.bottega.documentmanagement.domain.DocumentNumber;
 import pl.com.bottega.documentmanagement.domain.EmployeeId;
 
-/**
- * Created by maciuch on 16.08.16.
- */
 @RestController
 @RequestMapping("/documents/{documentNumber}/confirmations")
 public class ConfirmationsController {

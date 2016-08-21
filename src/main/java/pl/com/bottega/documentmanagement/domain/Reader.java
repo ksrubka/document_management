@@ -5,9 +5,6 @@ import com.google.common.base.Objects;
 import javax.persistence.*;
 import java.util.Date;
 
-/**
- * Created by maciuch on 07.08.16.
- */
 @Entity
 public class Reader {
 

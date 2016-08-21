@@ -7,10 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-
-/**
- * Created by Admin on 26.07.2016.
- */
 @Entity
 public class Role {
     @Id

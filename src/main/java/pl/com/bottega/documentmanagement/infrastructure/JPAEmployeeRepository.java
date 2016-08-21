@@ -18,9 +18,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Created by maciuch on 19.06.16.
- */
 @Repository
 public class JPAEmployeeRepository implements EmployeeRepository {
 

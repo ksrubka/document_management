@@ -6,9 +6,6 @@ import java.util.Formatter;
 
 import static org.junit.Assert.assertTrue;
 
-/**
- * Created by maciuch on 07.08.16.
- */
 public class Assert {
 
     private static Long EPS = 2L * 1000L;

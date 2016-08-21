@@ -4,9 +4,6 @@ import org.springframework.web.bind.annotation.*;
 import pl.com.bottega.documentmanagement.api.*;
 import pl.com.bottega.documentmanagement.domain.DocumentNumber;
 
-/**
- * Created by maciuch on 03.07.16.
- */
 @RestController
 @RequestMapping("/documents")
 public class DocumentsController {

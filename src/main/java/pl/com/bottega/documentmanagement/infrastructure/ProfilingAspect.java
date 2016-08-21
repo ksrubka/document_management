@@ -6,9 +6,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
-/**
- * Created by maciuch on 09.07.16.
- */
 @Component
 public class ProfilingAspect {
 

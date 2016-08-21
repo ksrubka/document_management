@@ -9,9 +9,7 @@ import java.util.Set;
 
 import static com.google.common.base.Preconditions.checkState;
 
-/**
- * Created by maciuch on 12.06.16.
- */
+
 @Entity
 public class Employee {
 

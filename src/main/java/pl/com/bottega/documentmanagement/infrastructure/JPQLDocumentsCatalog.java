@@ -15,10 +15,6 @@ import java.util.List;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
-/**
- * Created by Admin on 25.07.2016.
- */
-
 //@Component
 public class JPQLDocumentsCatalog implements DocumentsCatalog {
 

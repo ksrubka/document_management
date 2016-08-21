@@ -6,6 +6,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+import pl.com.bottega.documentmanagement.api.facades.HRSystemFacade;
+import pl.com.bottega.documentmanagement.api.facades.MailingFacade;
+import pl.com.bottega.documentmanagement.api.facades.PrintSystemFacade;
 import pl.com.bottega.documentmanagement.domain.*;
 import pl.com.bottega.documentmanagement.domain.repositories.DocumentRepository;
 import pl.com.bottega.documentmanagement.domain.repositories.EmployeeRepository;
@@ -53,12 +58,26 @@ public class DocumentFlowProcessTest {
     @Mock
     private Employee employee;
 
+    @Autowired
+    private PrintCostCalculator printCostCalculator;
+
+    @Mock
+    private HRSystemFacade hrSystemFacade;
+
+    @Mock
+    private MailingFacade mailingFacade;
+
+    @Mock
+    private PrintSystemFacade printSystemFacade;
+
     @Before
     public void setUp() throws Exception {
-        documentFlowProcess = new DocumentFlowProcess(documentRepository, userManager, documentFactory, employeeRepository);
+        documentFlowProcess = new DocumentFlowProcess(documentRepository, userManager, documentFactory,
+                employeeRepository, printCostCalculator, hrSystemFacade, mailingFacade, printSystemFacade);
     }
 
     @Test
+    @Transactional
     public void shouldCreateDocument() {
         //given
         when(documentFactory.create(anyTitle, anyContent)).thenReturn(document);
@@ -73,6 +92,7 @@ public class DocumentFlowProcessTest {
     }
 
     @Test
+    @Transactional
     public void shouldUpdateDocument() {
         //given
         when(documentRepository.load(documentNumber)).thenReturn(document);
@@ -81,11 +101,12 @@ public class DocumentFlowProcessTest {
         documentFlowProcess.change(documentNumber, anyTitle, anyContent);
 
         //then
-        verify(document).change(anyTitle, anyContent);
+        verify(document).change(anyTitle, anyContent, printCostCalculator);
         verify(documentRepository).save(document);
     }
 
     @Test
+    @Transactional
     public void shouldVerifyDocument() {
         //given
         when(documentRepository.load(documentNumber)).thenReturn(document);
@@ -100,6 +121,7 @@ public class DocumentFlowProcessTest {
     }
 
     @Test
+    @Transactional
     public void shouldPublishDocument() {
         //given
         when(documentRepository.load(documentNumber)).thenReturn(document);
@@ -115,6 +137,7 @@ public class DocumentFlowProcessTest {
     }
 
     @Test
+    @Transactional
     public void shouldArchiveDocument() {
         //given
         when(documentRepository.load(documentNumber)).thenReturn(document);
@@ -128,4 +151,13 @@ public class DocumentFlowProcessTest {
         verify(documentRepository).save(document);
     }
 
+    @Test
+    public void shouldSendPrintREquestForEmployeesWithoutEmail() {
+
+    }
+
+    @Test
+    public void shouldSendEmailsToEmployeesWithEmail() {
+        //zamockuj fasadę HR by zwracała odpowiednich pracowników dla danego testu
+    }
 }

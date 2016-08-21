@@ -1,8 +1,5 @@
 package pl.com.bottega.documentmanagement.api;
 
-/**
- * Created by maciuch on 30.07.16.
- */
 public class DocumentSearchResults {
 
     private Iterable<DocumentDto> documents;

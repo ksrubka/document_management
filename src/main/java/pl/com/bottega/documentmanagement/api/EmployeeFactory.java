@@ -1,16 +1,9 @@
 package pl.com.bottega.documentmanagement.api;
 
-import com.google.common.base.Charsets;
-import com.google.common.collect.Sets;
-import com.google.common.hash.Hashing;
 import org.springframework.stereotype.Service;
 import pl.com.bottega.documentmanagement.domain.Employee;
 import pl.com.bottega.documentmanagement.domain.EmployeeId;
-import pl.com.bottega.documentmanagement.domain.Role;
 
-/**
- * Created by maciuch on 31.07.16.
- */
 @Service
 public class EmployeeFactory {
 

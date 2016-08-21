@@ -18,9 +18,6 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-/**
- * Created by maciuch on 31.07.16.
- */
 @RunWith(MockitoJUnitRunner.class)
 public class UserManagerTest {
 

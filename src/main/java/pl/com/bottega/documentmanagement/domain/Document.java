@@ -1,10 +1,8 @@
 package pl.com.bottega.documentmanagement.domain;
 
 import javax.persistence.*;
-import java.util.Collections;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.math.BigDecimal;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static com.google.common.base.Preconditions.checkArgument;
@@ -16,6 +14,7 @@ import static com.google.common.base.Preconditions.checkState;
 @Entity
 public class Document {
 
+    private static final int CHARS_PER_PAGE = 1000;
     @Id
     @GeneratedValue
     private Long id;
@@ -27,6 +26,8 @@ public class Document {
     private String title;
 
     private boolean deleted;
+
+    private BigDecimal cost;
 
     @Temporal(value = TemporalType.TIMESTAMP)
     private Date createdAt, verifiedAt, updatedAt;
@@ -57,7 +58,8 @@ public class Document {
     private Document() {
     }
 
-    public Document(DocumentNumber documentNumber, String content, String title, Employee creator) {
+    public Document(DocumentNumber documentNumber, String content, String title, Employee creator,
+                    PrintCostCalculator printCostCalculator) {
         this.documentNumber = documentNumber;
         this.content = content;
         this.title = title;
@@ -65,13 +67,20 @@ public class Document {
         this.status = DocumentStatus.DRAFT;
         this.createdAt = new Date();
         this.deleted = false;
+        this.cost = printCostCalculator.calculateCost(pagesCount());
     }
 
-    public void change(String title, String content) {
+    public void change(String title, String content, PrintCostCalculator printCostCalculator) {
         this.title = title;
         this.content = content;
         this.status = DocumentStatus.DRAFT;
         this.updatedAt = new Date();
+        this.cost = printCostCalculator.calculateCost(pagesCount());
+    }
+
+    private int pagesCount() {
+        return content.length() / CHARS_PER_PAGE +
+                (content.length() % CHARS_PER_PAGE == 0 ? 0 : 1);
     }
 
     public void verify(Employee employee) {

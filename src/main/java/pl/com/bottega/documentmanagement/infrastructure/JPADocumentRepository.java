@@ -8,9 +8,6 @@ import pl.com.bottega.documentmanagement.domain.repositories.DocumentRepository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-/**
- * Created by maciuch on 22.06.16.
- */
 @Repository
 public class JPADocumentRepository implements DocumentRepository {
 

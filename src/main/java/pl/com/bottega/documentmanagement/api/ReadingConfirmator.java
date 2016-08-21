@@ -10,9 +10,6 @@ import pl.com.bottega.documentmanagement.domain.repositories.EmployeeRepository;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
-/**
- * Created by maciuch on 12.06.16.
- */
 @Service
 public class ReadingConfirmator {
 

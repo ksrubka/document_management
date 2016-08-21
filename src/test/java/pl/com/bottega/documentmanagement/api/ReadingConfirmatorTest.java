@@ -15,9 +15,6 @@ import pl.com.bottega.documentmanagement.domain.repositories.EmployeeRepository;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-/**
- * Created by maciuch on 18.08.16.
- */
 @RunWith(MockitoJUnitRunner.class)
 public class ReadingConfirmatorTest {
 
