@@ -47,7 +47,6 @@ public class DocumentFlowProcess {
     public DocumentNumber create(String title, String content) {
         checkNotNull(title);
         checkNotNull(content);
-
         Document document = documentFactory.create(title, content);
         documentRepository.save(document);
         return document.number();
@@ -59,7 +58,6 @@ public class DocumentFlowProcess {
         checkNotNull(documentNumber);
         checkNotNull(newTitle);
         checkNotNull(newContent);
-
         Document document = documentRepository.load(documentNumber);
         document.change(newTitle, newContent, printCostCalculator);
         documentRepository.save(document);
@@ -69,7 +67,6 @@ public class DocumentFlowProcess {
     @RequiresAuth(roles = "MANAGER")
     public void verify(DocumentNumber documentNumber) {
         checkNotNull(documentNumber);
-
         Document document = documentRepository.load(documentNumber);
         document.verify(userManager.currentEmployee());
         documentRepository.save(document);

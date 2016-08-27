@@ -1,4 +1,5 @@
 package pl.com.bottega.wzorce.decorator.cesar_cipher;
+import com.sun.javafx.property.adapter.PropertyDescriptor;
 
 import java.io.*;
 
@@ -8,8 +9,9 @@ import java.io.*;
 public class CaesarCipherApplication {
 
     public static void main(String[] args) throws IOException {
+
         OutputStream outputStream = new FileOutputStream("C:/projects/dokumenty/caesarCipher.txt");
-        int key = 1;
+        int key = 133;
         outputStream = new CesarOutputStream(outputStream, key);
         outputStream.write("Ala ma kota i aligatoraz".getBytes());
         outputStream.close();

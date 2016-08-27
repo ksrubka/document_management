@@ -6,6 +6,8 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.BootstrapWith;
+import pl.com.bottega.documentmanagement.domain.events.DocumentListener;
 
 import java.util.Date;
 import java.util.Set;
@@ -13,6 +15,7 @@ import java.util.Set;
 import static junit.framework.TestCase.assertNotNull;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 import static pl.com.bottega.documentmanagement.utils.Assert.assertDatesEqual;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -214,7 +217,22 @@ public class DocumentTest {
 
         //when
         document.confirm(otherEmployee);
-
     }
 
+    @Test
+    public void shouldNotifyListenersWhenPublished() {
+        Document document = new Document(anyNumber, anyContent, anyTitle, anyEmployee, printCostCalculator);
+        document.verify(anyEmployee);
+        DocumentListener firstListener = mock(DocumentListener.class);
+        DocumentListener secondListener = mock(DocumentListener.class);
+        document.subscribe(firstListener);
+        document.subscribe(secondListener);
+
+        //when
+        document.publish(anyEmployee, Sets.newHashSet(anyEmployee));
+
+        //then
+        verify(firstListener).published(document);
+        verify(secondListener).published(document);
+    }
 }
