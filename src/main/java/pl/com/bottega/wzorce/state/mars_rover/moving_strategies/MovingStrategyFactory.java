@@ -1,6 +1,6 @@
-package pl.com.bottega.wzorce.mars_rover;
+package pl.com.bottega.wzorce.state.mars_rover.moving_strategies;
 
-import pl.com.bottega.wzorce.mars_rover.moving_strategies.*;
+import pl.com.bottega.wzorce.state.mars_rover.Direction;
 
 /**
  * Created by Beata Iłowiecka on 28.08.2016.
