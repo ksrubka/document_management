@@ -23,23 +23,18 @@ public class DocumentFlowProcess {
     private EmployeeRepository employeeRepository;
     private UserManager userManager;
     private PrintCostCalculator printCostCalculator;
-    private HRSystemFacade hrSystemFacade;
     private PrintSystemFacade printSystemFacade;
-    private MailingFacade mailingFacade;
 
     public DocumentFlowProcess(DocumentRepository documentRepository, UserManager userManager,
                                DocumentFactory documentFactory, EmployeeRepository employeeRepository,
                                PrintCostCalculator printCostCalculator,
-                               HRSystemFacade hrSystemFacade, MailingFacade mailingFacade,
                                PrintSystemFacade printSystemFacade) {
         this.documentRepository = documentRepository;
         this.userManager = userManager;
         this.documentFactory = documentFactory;
         this.employeeRepository = employeeRepository;
         this.printCostCalculator = printCostCalculator;
-        this.hrSystemFacade = hrSystemFacade;
         this.printSystemFacade = printSystemFacade;
-        this.mailingFacade = mailingFacade;
     }
 
     @Transactional
@@ -78,23 +73,6 @@ public class DocumentFlowProcess {
         checkNotNull(documentNumber);
         Document document = documentRepository.load(documentNumber);
         document.publish(userManager.currentEmployee(), getEmployees(ids));
-        Set<EmployeeDetails> employeeDetailsSet = hrSystemFacade.getEmployeeDetails(Sets.newHashSet(ids));
-        sendEmailAboutPublishedDocument(document, employeeDetailsSet);
-        printDocument(document, employeeDetailsSet);
-    }
-
-    private void sendEmailAboutPublishedDocument(Document document, Set<EmployeeDetails> employeeDetails) {
-        Set<EmployeeDetails> employeesHavingEmail = getEmployeesHavingEmail(employeeDetails);
-        mailingFacade.sendDocumentPublishedEmails(document,employeesHavingEmail);
-    }
-
-    private Set<EmployeeDetails> getEmployeesHavingEmail(Set<EmployeeDetails> employeeDetails) {
-        Set<EmployeeDetails> employeesHavingEmail = new HashSet<>();
-        for (EmployeeDetails details : employeeDetails){
-            if (details.hasEmail())
-                employeesHavingEmail.add(details);
-        }
-        return employeesHavingEmail;
     }
 
     private void printDocument(Document document, Set<EmployeeDetails> employeeDetails) {
@@ -104,7 +82,7 @@ public class DocumentFlowProcess {
 
     private Set<EmployeeDetails> getEmployeesWithoutEmail(Set<EmployeeDetails> employeeDetails) {
         Set<EmployeeDetails> employeesWithoutEmail = new HashSet<>();
-        for (EmployeeDetails details : employeeDetails){
+        for (EmployeeDetails details : employeeDetails) {
             if (!details.hasEmail())
                 employeesWithoutEmail.add(details);
         }

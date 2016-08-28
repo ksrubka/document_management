@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
  * Created by Beata Iłowiecka on 21.08.2016.
  */
 @Component
-public class HRSystemImpl implements HRSystemFacade {
+public class HRSystemFacadeImpl implements HRSystemFacade {
 
     @Override
     public Set<EmployeeDetails> getEmployeeDetails(Set<EmployeeId> employees) {
@@ -25,14 +25,13 @@ public class HRSystemImpl implements HRSystemFacade {
             employeeDetails.setAddress("Księżycoa 2");
             employeeDetails.setEmail("janina.nowak@wp.pl");
             employeeDetailsSet.add(employeeDetails);
-
         }
         return employeeDetailsSet;*/
         return employees.stream().map(employee -> {
             EmployeeDetails employeeDetails = new EmployeeDetails();
             employeeDetails.setFirstName("Janina");
             employeeDetails.setLastName("Nowak");
-            employeeDetails.setAddress("Księżycoa 2");
+            employeeDetails.setAddress("Księżycowa 2");
             employeeDetails.setEmail("janina.nowak@wp.pl");
             return employeeDetails;
         }).collect(Collectors.toSet());

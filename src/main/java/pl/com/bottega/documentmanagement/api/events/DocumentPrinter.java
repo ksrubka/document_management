@@ -1,6 +1,7 @@
 package pl.com.bottega.documentmanagement.api.events;
 
 import com.google.common.collect.Sets;
+import org.springframework.stereotype.Component;
 import pl.com.bottega.documentmanagement.api.EmployeeDetails;
 import pl.com.bottega.documentmanagement.api.facades.HRSystemFacade;
 import pl.com.bottega.documentmanagement.api.facades.PrintSystemFacade;
@@ -16,6 +17,7 @@ import java.util.stream.Collectors;
 /**
  * Created by Beata Iłowiecka on 27.08.2016.
  */
+@Component
 public class DocumentPrinter implements DocumentListener {
 
     private PrintSystemFacade printSystemFacade;
