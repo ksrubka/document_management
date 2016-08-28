@@ -9,13 +9,6 @@ import static pl.com.bottega.wzorce.chain_of_responsibility.starbucks.ingredient
 
 public class CoffeeSizeSetter extends CoffeeMaker {
 
-    private CoffeeMaker nextCoffeeMaker;
-
-    @Override
-    public void setNextCoffeeMaker(CoffeeMaker coffeeMaker) {
-        this.nextCoffeeMaker = coffeeMaker;
-    }
-
     @Override
     public void makeCoffee(Order order) {
         if (order.contains(SMALL_COFFEE) ||

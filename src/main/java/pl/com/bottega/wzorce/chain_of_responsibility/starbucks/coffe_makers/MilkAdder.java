@@ -10,12 +10,6 @@ import static pl.com.bottega.wzorce.chain_of_responsibility.starbucks.ingredient
 
 public class MilkAdder extends CoffeeMaker {
 
-    private CoffeeMaker nextCoffeeMaker;
-
-    public void setNextCoffeeMaker(CoffeeMaker coffeeMaker) {
-        this.nextCoffeeMaker = coffeeMaker;
-    }
-
     @Override
     public void makeCoffee(Order order) {
         if (orderHasMilk(order)) {

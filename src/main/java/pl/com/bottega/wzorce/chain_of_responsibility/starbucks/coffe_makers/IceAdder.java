@@ -11,13 +11,6 @@ public class IceAdder extends CoffeeMaker {
     private static final BigDecimal ICE_COST = new BigDecimal(0.5);
     private static final String ICE_NAME = ", ice";
 
-    private CoffeeMaker nextCoffeeMaker;
-
-    @Override
-    public void setNextCoffeeMaker(CoffeeMaker coffeeMaker) {
-        this.nextCoffeeMaker = coffeeMaker;
-    }
-
     @Override
     public void makeCoffee(Order order) {
         if (order.contains(ICE)) {

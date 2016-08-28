@@ -10,13 +10,6 @@ import static pl.com.bottega.wzorce.chain_of_responsibility.starbucks.ingredient
 
 public class SyrupAdder extends CoffeeMaker {
 
-    private CoffeeMaker nextCoffeeMaker;
-
-    @Override
-    public void setNextCoffeeMaker(CoffeeMaker coffeeMaker) {
-        this.nextCoffeeMaker = coffeeMaker;
-    }
-
     @Override
     public void makeCoffee(Order order) {
         if (order.contains(MAPLE_SYRUP) || order.contains(CARAMEL_SYRUP) || order.contains(COCONUT_SYRUP)) {

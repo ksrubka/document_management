@@ -6,6 +6,11 @@ import pl.com.bottega.wzorce.chain_of_responsibility.starbucks.ingredients.coffe
 public abstract class CoffeeMaker {
 
     protected Coffee coffee;
+    protected CoffeeMaker nextCoffeeMaker;
+
+    public void setNextCoffeeMaker(CoffeeMaker coffeeMaker) {
+        this.nextCoffeeMaker = coffeeMaker;
+    }
 
     public Coffee getCoffee() {
         return coffee;
@@ -15,6 +20,5 @@ public abstract class CoffeeMaker {
         this.coffee = coffee;
     }
 
-    public abstract void setNextCoffeeMaker(CoffeeMaker coffeeMaker);
     public abstract void makeCoffee(Order order);
 }
