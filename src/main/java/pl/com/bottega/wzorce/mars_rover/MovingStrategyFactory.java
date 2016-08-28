@@ -1,6 +1,6 @@
-package pl.com.bottega.wzorce.mars_rower;
+package pl.com.bottega.wzorce.mars_rover;
 
-import pl.com.bottega.wzorce.mars_rower.moving_strategies.*;
+import pl.com.bottega.wzorce.mars_rover.moving_strategies.*;
 
 /**
  * Created by Beata Iłowiecka on 28.08.2016.

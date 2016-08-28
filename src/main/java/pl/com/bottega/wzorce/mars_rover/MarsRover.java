@@ -1,8 +1,8 @@
-package pl.com.bottega.wzorce.mars_rower;
+package pl.com.bottega.wzorce.mars_rover;
 
-import pl.com.bottega.wzorce.mars_rower.moving_strategies.MovingStrategy;
+import pl.com.bottega.wzorce.mars_rover.moving_strategies.MovingStrategy;
 
-import static pl.com.bottega.wzorce.mars_rower.Direction.*;
+import static pl.com.bottega.wzorce.mars_rover.Direction.*;
 
 /**
  * Created by Beata Iłowiecka on 28.08.2016.
@@ -21,7 +21,6 @@ public class MarsRover {
 
     public void move() {
         currentPosition = movingStrategy.move(currentPosition);
-        System.out.println(currentPosition);
     }
 
     public  void rotateLeft() {
@@ -52,7 +51,6 @@ public class MarsRover {
                 break;
         }
         movingStrategy = MovingStrategyFactory.create(direction);
-        System.out.println(currentPosition);
     }
 
     public  void rotateRight() {
@@ -83,7 +81,6 @@ public class MarsRover {
                 break;
         }
         movingStrategy = MovingStrategyFactory.create(direction);
-        System.out.println(currentPosition);
     }
 
     Position getPosition() {
