@@ -27,5 +27,4 @@ public class ConfirmationsController {
     public void create(@PathVariable String documentNumber, @PathVariable Long forEmployeeId) {
         readingConfirmator.confirm(new DocumentNumber(documentNumber), new EmployeeId(forEmployeeId));
     }
-
 }
