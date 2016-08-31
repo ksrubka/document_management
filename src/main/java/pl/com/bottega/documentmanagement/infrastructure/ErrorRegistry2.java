@@ -12,11 +12,11 @@ public class ErrorRegistry2 {
         private static final ErrorRegistry2 INSTANCE = new ErrorRegistry2();
     }
 
+    private List<String> errors = new LinkedList<>();
+
     private  ErrorRegistry2() {
         System.out.println("Creating error registry 2");
     }
-
-    private List<String> errors = new LinkedList<>();
 
     public static ErrorRegistry2 getInstance() {
         return SingletonHolder.INSTANCE;
