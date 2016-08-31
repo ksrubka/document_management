@@ -31,11 +31,11 @@ public class DocumentPrinter implements DocumentListener {
     @Override
     public void published(Document document) {
         Set<Reader> readers = document.readers();
-        //Set<EmployeeId> ids = readers.stream().map(reader -> reader.employeeId()).collect(Collectors.toSet());
-        Set<EmployeeId> ids = new HashSet<>();
-        for (Reader reader : readers) {
-            ids.add(reader.employeeId());
-        }
+        Set<EmployeeId> ids = readers.stream().map(Reader::employeeId).collect(Collectors.toSet());
+//        Set<EmployeeId> ids = new HashSet<>();
+//        for (Reader reader : readers) {
+//            ids.add(reader.employeeId());
+//        }
         Set<EmployeeDetails> employeeDetailsSet = hrSystemFacade.getEmployeeDetails(Sets.newHashSet(ids));
         printDocument(document, employeeDetailsSet);
     }
@@ -46,11 +46,15 @@ public class DocumentPrinter implements DocumentListener {
     }
 
     private Set<EmployeeDetails> getEmployeesWithoutEmail(Set<EmployeeDetails> employeeDetails) {
-        Set<EmployeeDetails> employeesWithoutEmail = new HashSet<>();
-        for (EmployeeDetails details : employeeDetails){
-            if (!details.hasEmail())
-                employeesWithoutEmail.add(details);
-        }
+        Set<EmployeeDetails> employeesWithoutEmail = employeeDetails.stream()
+                .filter(details -> !details.hasEmail())
+                .collect(Collectors.toSet());
+
+        //        Set<EmployeeDetails> employeesWithoutEmail = new HashSet<>();
+//        for (EmployeeDetails details : employeeDetails){
+//            if (!details.hasEmail())
+//                employeesWithoutEmail.add(details);
+//        }
         return employeesWithoutEmail;
     }
 }
