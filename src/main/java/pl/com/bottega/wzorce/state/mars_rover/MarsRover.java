@@ -1,11 +1,7 @@
 package pl.com.bottega.wzorce.state.mars_rover;
 
-import pl.com.bottega.wzorce.state.mars_rover.moving_strategies.MovingStrategy;
-import pl.com.bottega.wzorce.state.mars_rover.moving_strategies.MovingStrategyFactory;
-import pl.com.bottega.wzorce.state.mars_rover.state.MarsRoverState;
-import pl.com.bottega.wzorce.state.mars_rover.state.NorthState;
-
-import static pl.com.bottega.wzorce.state.mars_rover.Direction.*;
+import pl.com.bottega.wzorce.state.mars_rover.states.MarsRoverState;
+import pl.com.bottega.wzorce.state.mars_rover.states.NorthState;
 
 /**
  * Created by Beata Iłowiecka on 28.08.2016.
@@ -24,11 +20,11 @@ public class MarsRover {
         currentState.move();
     }
 
-    public  void rotateLeft() {
+    public void rotateLeft() {
         currentState.rotateLeft();
     }
 
-    public  void rotateRight() {
+    public void rotateRight() {
         currentState.rotateRight();
     }
 

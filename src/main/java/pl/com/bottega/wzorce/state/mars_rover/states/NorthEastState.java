@@ -1,4 +1,4 @@
-package pl.com.bottega.wzorce.state.mars_rover.state;
+package pl.com.bottega.wzorce.state.mars_rover.states;
 
 import pl.com.bottega.wzorce.state.mars_rover.MarsRover;
 import pl.com.bottega.wzorce.state.mars_rover.Position;
@@ -6,25 +6,25 @@ import pl.com.bottega.wzorce.state.mars_rover.Position;
 /**
  * Created by Beata Iłowiecka on 28.08.2016.
  */
-public class NorthState extends MarsRoverState {
+public class NorthEastState extends MarsRoverState {
 
-    public NorthState(MarsRover marsRover) {
+    public NorthEastState(MarsRover marsRover) {
         super(marsRover);
     }
 
     @Override
     public void move() {
         Position position = marsRover.position();
-        marsRover.setPosition(new Position(position.x() + 1, position.y()));
+        marsRover.setPosition(new Position(position.x() + 1, position.y() + 1));
     }
 
     @Override
     public void rotateLeft() {
-        marsRover.setState(new NorthWestState(marsRover));
+        marsRover.setState(new NorthState(marsRover));
     }
 
     @Override
     public void rotateRight() {
-        marsRover.setState(new NorthEastState(marsRover));
+        marsRover.setState(new EastState(marsRover));
     }
 }

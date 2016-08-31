@@ -1,10 +1,6 @@
 package pl.com.bottega.wzorce.state.mars_rover;
 
-import pl.com.bottega.wzorce.state.mars_rover.state.NorthState;
-
 import java.util.Scanner;
-
-import static pl.com.bottega.wzorce.state.mars_rover.Direction.N;
 
 /**
  * Created by Beata Iłowiecka on 28.08.2016.

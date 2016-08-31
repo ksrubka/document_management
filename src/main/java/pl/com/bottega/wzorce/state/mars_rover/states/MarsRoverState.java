@@ -1,4 +1,4 @@
-package pl.com.bottega.wzorce.state.mars_rover.state;
+package pl.com.bottega.wzorce.state.mars_rover.states;
 
 import pl.com.bottega.wzorce.state.mars_rover.MarsRover;
 
