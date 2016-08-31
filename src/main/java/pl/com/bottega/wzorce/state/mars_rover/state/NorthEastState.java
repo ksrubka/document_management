@@ -25,6 +25,6 @@ public class NorthEastState extends MarsRoverState {
 
     @Override
     public void rotateRight() {
-        marsRover.setState(new WestState(marsRover));
+        marsRover.setState(new EastState(marsRover));
     }
 }
