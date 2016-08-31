@@ -19,12 +19,12 @@ public class SouthWestState extends MarsRoverState {
     }
 
     @Override
-    public void rotateLeft() {
-        marsRover.setState(new SouthState(marsRover));
+    public void rotateRight() {
+        marsRover.setState(new WestState(marsRover));
     }
 
     @Override
-    public void rotateRight() {
-        marsRover.setState(new WestState(marsRover));
+    public void rotateLeft() {
+        marsRover.setState(new SouthState(marsRover));
     }
 }
